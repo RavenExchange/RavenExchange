@@ -1,0 +1,108 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title and Logo */
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-container h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.navbar button {
+    background-color: #fff;
+    color: #1e90ff;
+    border: 2px solid #1e90ff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.navbar button:hover {
+    background-color: #1e90ff;
+    color: #fff;
+}
+
+/* Listings Container */
+.listings-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 15px;
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(65vh - 150px); /* Adjust for header height */
+    box-sizing: border-box;
+}
+
+/* Listing Styles */
+.listing {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.listing:hover {
+    transform: translateY(-5px);
+}
+
+.listing-image {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+
+.listing-details {
+    padding: 10px;
+    text-align: center;
+}
+
+.item-name {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.item-price {
+    font-size: 14px;
+    color: #1e90ff;
+    font-weight: bold;
+    margin: 0;
+}
