@@ -41,4 +41,24 @@ public class User {
         //If email is verified within time return true, else false
         return true;
     }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }
