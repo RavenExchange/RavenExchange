@@ -37,6 +37,8 @@ public class User {
     }
 
     private boolean verifyUniversityEmail(String universityEmail){
+        //Send verification link to cmail
+        //If email is verified within time return true, else false
         return true;
     }
 }
