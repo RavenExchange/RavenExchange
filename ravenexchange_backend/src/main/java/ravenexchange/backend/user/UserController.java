@@ -1,15 +1,18 @@
 package ravenexchange.backend.user;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/auth")
 public class UserController {
+    private final UserRepository userRepository;
 
-    @PostMapping("/auth/register")
+    public UserController(UserRepository userRepository){
+        this.userRepository = userRepository;
+
+    }
+
+    @PostMapping("/api/auth/register")
     String register(){
         return "User registered";
     }
