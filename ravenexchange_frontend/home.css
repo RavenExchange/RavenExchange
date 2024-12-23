@@ -11,32 +11,38 @@ body {
 .header {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: #1e90ff;
+    align-items: center; /* Center items horizontally */
+    background-color: #a51d14;
     color: #fff;
-    padding: 15px 20px;
+    padding: 20px 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Title and Logo */
-.title-container {
+/* Logo and Title Centering */
+.logo-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center; /* Center the logo and title vertically */
+    gap: 10px; /* Space between logo and title */
+    text-align: center;
 }
 
-.title-container h1 {
+.logo {
+    width: 60px; /* Adjusted size for better visibility */
+    height: auto;
+    object-fit: contain;
+}
+
+.logo-container h1 {
     font-size: 24px;
     margin: 0;
 }
-
-
 
 /* Navigation Bar */
 .navbar {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .navbar button {
@@ -60,7 +66,7 @@ body {
 /* Listings Container */
 .listings-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Wider listing boxes */
     gap: 15px;
     padding: 20px;
     overflow-y: auto;
