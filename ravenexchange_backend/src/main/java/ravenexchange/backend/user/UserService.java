@@ -8,6 +8,7 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+    //UserService constructor
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
