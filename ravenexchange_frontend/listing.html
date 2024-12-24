@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing Details - Ravens Exchange</title>
+    <link rel="stylesheet" href="listing.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="RELogo.jpeg" alt="RE Logo" class="logo">
+            <h1>Ravens Exchange</h1>
+        </div>
+        <nav class="navbar">
+            <button onclick="location.href='home.html'">Home</button>
+            <button onclick="location.href='search.html'">Search</button>
+            <button onclick="location.href='messages.html'">Messages</button>
+            <button onclick="location.href='profile.html'">Profile</button>
+        </nav>
+    </header>
+
+    <!-- Listing Details Section -->
+    <main class="listing-container">
+        <div id="listing">
+            <!-- Content will be dynamically populated -->
+        </div>
+        <button class="contact-seller" onclick="contactSeller()">Contact Seller</button>
+    </main>
+
+    <script>
+        // Fetch listing ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const listingId = urlParams.get('id');
+
+        // Example listings data (mock database or server response)
+        const listings = {
+            1: {
+                title: "Carleton Hoodie",
+                price: "$40",
+                description: "A cozy hoodie perfect for winter days. Size: Medium. Excellent condition.",
+                image: "item1.jpg",
+                seller: "John Doe",
+            },
+            2: {
+                title: "Used Textbook: Math 101",
+                price: "$30",
+                description: "A used Math 101 textbook. Some highlighting, but otherwise in good condition.",
+                image: "item2.jpg",
+                seller: "Jane Smith",
+            },
+            3: {
+                title: "Laptop Stand",
+                price: "$25",
+                description: "Ergonomic laptop stand with adjustable height. Like new.",
+                image: "item3.jpg",
+                seller: "Alex Johnson",
+            },
+        };
+
+        // Populate listing details
+        const listing = listings[listingId] || null;
+        const listingContainer = document.getElementById("listing");
+
+        if (listing) {
+            listingContainer.innerHTML = `
+                <img src="${listing.image}" alt="${listing.title}" class="listing-image">
+                <h2 class="listing-title">${listing.title}</h2>
+                <p class="listing-price">${listing.price}</p>
+                <p class="listing-description">${listing.description}</p>
+                <p class="listing-seller"><strong>Seller:</strong> ${listing.seller}</p>
+            `;
+        } else {
+            listingContainer.innerHTML = `<p>Listing not found.</p>`;
+        }
+
+        // Contact seller function (example)
+        function contactSeller() {
+            alert("Contacting the seller...");
+            location.href = "messages.html";
+        }
+    </script>
+</body>
+</html>

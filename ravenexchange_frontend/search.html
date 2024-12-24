@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - Ravens Exchange</title>
+    <link rel="stylesheet" href="search.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="RELogo.jpeg" alt="RE Logo" class="logo">
+            <h1>Ravens Exchange</h1>
+        </div>
+        <nav class="navbar">
+            <button onclick="location.href='home.html'">Home</button>
+            <button onclick="location.href='search.html'">Search</button>
+            <button onclick="location.href='messages.html'">Messages</button>
+            <button onclick="location.href='profile.html'">Profile</button>
+        </nav>
+    </header>
+
+    <!-- Search Section -->
+    <main class="search-container">
+        <div class="search-bar">
+            <input type="text" placeholder="Search for items..." class="search-input">
+            <button class="search-button">Search</button>
+        </div>
+
+        <!-- Search Results -->
+        <div class="search-results">
+            <!-- Example Results -->
+            <div class="result-item" onclick="location.href='listing.html?id=2'">
+                <img src="item1.jpg" alt="Item Image" class="result-image">
+                <div class="result-details">
+                    <h2 class="result-title">Carleton Hoodie</h2>
+                    <p class="result-price">$40</p>
+                </div>
+            </div>
+
+            <div class="result-item" onclick="location.href='listing.html?id=2'">
+                <img src="item2.jpg" alt="Item Image" class="result-image">
+                <div class="result-details">
+                    <h2 class="result-title">Used Textbook: Math 101</h2>
+                    <p class="result-price">$30</p>
+                </div>
+            </div>
+
+            <div class="result-item" onclick="location.href='listing.html?id=2'">
+                <img src="item3.jpg" alt="Item Image" class="result-image">
+                <div class="result-details">
+                    <h2 class="result-title">Laptop Stand</h2>
+                    <p class="result-price">$25</p>
+                </div>
+            </div>
+            <!-- Add more results dynamically -->
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 20px 20px;
+}
+
+/* Logo and Title Centering */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the logo and title vertically */
+    gap: 10px; /* Space between logo and title */
+    text-align: center;
+}
+
+/* Consistent Logo Styling */
+.logo {
+    width: 60px; /* Consistent size across pages */
+    height: auto;
+    object-fit: contain;
+}
+
+/* Conversation Container */
+.conversation-container {
+    padding: 20px;
+}
+
+.conversation-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #1e90ff;
+}
+
+/* Messages */
+.message {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Field */
+.message-input {
+    display: flex;
+    margin-top: 20px;
+}
+
+.message-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px 0 0 6px;
+}
+
+.message-input button {
+    padding: 10px 20px;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+}
