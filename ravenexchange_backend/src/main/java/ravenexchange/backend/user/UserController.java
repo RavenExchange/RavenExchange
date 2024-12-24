@@ -46,15 +46,15 @@ public class UserController {
         }
     }
 
+    //Login user
     @PostMapping("/login")
     ResponseEntity<Map<String,Object>> login(@RequestBody Map<String, String> loginRequest){
         Map<String, Object> jsonResponse = new HashMap<>(); //JSON response map
 
-        //Login user
         try {
             String login = loginRequest.get("login");
             String password = loginRequest.get("password");
-            boolean loginIsEmail = login.contains("@");
+            boolean loginIsEmail = login.contains("@"); //Check if login is an email
 
             userService.loginUser(login, password, loginIsEmail);
 

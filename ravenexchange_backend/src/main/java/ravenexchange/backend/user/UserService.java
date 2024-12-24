@@ -39,6 +39,7 @@ public class UserService {
     public User loginUser(String login, String password, boolean loginIsEmail){
         User user;
 
+        //Check if the login is an email or username
         if(loginIsEmail){
             user = userRepository.findByEmail(login);
         }
@@ -50,6 +51,7 @@ public class UserService {
             throw new IllegalArgumentException("User not found");
         }
 
+        //Verify raw password against hashed password
         if(!verifyPassword(password, user.getPassword())){
             throw new IllegalArgumentException("Incorrect password");
         }
