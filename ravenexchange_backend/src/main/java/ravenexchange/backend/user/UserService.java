@@ -36,6 +36,27 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public User loginUser(String login, String password, boolean loginIsEmail){
+        User user;
+
+        if(loginIsEmail){
+            user = userRepository.findByEmail(login);
+        }
+        else{
+            user = userRepository.findByUsername(login);
+        }
+
+        if(user == null){
+            throw new IllegalArgumentException("User not found");
+        }
+
+        if(!verifyPassword(password, user.getPassword())){
+            throw new IllegalArgumentException("Incorrect password");
+        }
+
+        return user;
+    }
+
     /**
      * Hashes the raw password using BCrypt
      *

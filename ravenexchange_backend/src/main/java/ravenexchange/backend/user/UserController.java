@@ -45,4 +45,30 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonResponse);
         }
     }
+
+    @PostMapping("/login")
+    ResponseEntity<Map<String,Object>> login(@RequestBody Map<String, String> loginRequest){
+        Map<String, Object> jsonResponse = new HashMap<>(); //JSON response map
+
+        //Login user
+        try {
+            String login = loginRequest.get("login");
+            String password = loginRequest.get("password");
+            boolean loginIsEmail = login.contains("@");
+
+            userService.loginUser(login, password, loginIsEmail);
+
+            jsonResponse.put("message", "User logged in successfully");
+            jsonResponse.put("status", HttpStatus.OK);
+
+            return ResponseEntity.status(HttpStatus.OK).body(jsonResponse);
+        }
+        catch (IllegalArgumentException e){ //Username or password is incorrect
+            jsonResponse.put("message", e.getMessage());
+            jsonResponse.put("status", HttpStatus.UNAUTHORIZED);
+
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(jsonResponse);
+        }
+
+    }
 }
