@@ -2,7 +2,6 @@ package ravenexchange.backend.user;
 import jakarta.persistence.*;
 import jdk.jfr.DataAmount;
 import lombok.Data;
-//import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.sql.Timestamp;
@@ -29,7 +28,7 @@ public class User {
     private String email;
 
     @Column(name = "password")
-    private String password; //Hashed
+    private String password; //Hashed (BCrypt)
 
     @Column(name = "university_email")
     private String university_email;
@@ -45,14 +44,14 @@ public class User {
 
     public User() {}
 
-    public User(String username, String firstname, String lastname, String email, String password, String universityEmail) {
+    public User(String username, String firstname, String lastname, String email, String password, String university_email) {
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
-        this.password = password; //Hash this later
-        this.university_email = universityEmail;
-        creation_timestamp = Timestamp.valueOf(LocalDateTime.now());
+        this.password = password; //Hashed (BCrypt)
+        this.university_email = university_email;
+
 
 //        verificationStatus = verifyUniversityEmail(universityEmail);
 //

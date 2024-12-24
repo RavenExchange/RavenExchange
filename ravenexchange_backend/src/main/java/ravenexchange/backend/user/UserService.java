@@ -1,4 +1,40 @@
 package ravenexchange.backend.user;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
+
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public User createUser(String username, String firstname, String lastname, String email, String password, String university_email) {
+        User user = new User(username, firstname, lastname, email, hashPassword(password), university_email);
+        return userRepository.save(user);
+    }
+
+    /**
+     * Hashes the raw password using BCrypt
+     *
+     * @param rawPassword Raw password to be hashed.
+     * @return Returns the hashed password.
+     */
+    private String hashPassword(String rawPassword) {
+        return BCrypt.hashpw(rawPassword, BCrypt.gensalt());
+    }
+
+    /**
+     * Verifies the raw password against the hashed password.
+     *
+     * @param rawPassword Raw password to be verified.
+     * @param hashedPassword Hashed password to be verified against.
+     * @return Returns true if the raw password matches the hashed password.
+     */
+    private boolean verifyPassword(String rawPassword, String hashedPassword) {
+        return BCrypt.checkpw(rawPassword, hashedPassword);
+    }
 }
