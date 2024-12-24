@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private UserService userService;
 
+    //UserController constructor
     public UserController(UserRepository userRepository){
         this.userService = new UserService(userRepository);
 
