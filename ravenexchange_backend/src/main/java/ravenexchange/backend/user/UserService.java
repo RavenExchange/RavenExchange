@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
+    private final int minPasswordLength = 6;
     private final UserRepository userRepository;
 
     //UserService constructor
@@ -14,6 +15,23 @@ public class UserService {
     }
 
     public User createUser(String username, String firstname, String lastname, String email, String password, String university_email) {
+        //Validate user credentials
+        if(password.length() < minPasswordLength){
+            throw new IllegalArgumentException("Password must be at least " + minPasswordLength + " characters long");
+        }
+
+        if(userRepository.existsByUsername(username)){
+            throw new IllegalArgumentException("Username already exists");
+        }
+
+        if(userRepository.existsByEmail(email)) {
+            throw new IllegalArgumentException("Email already exists");
+        }
+
+        if(userRepository.existsByUniversityEmail(university_email)) {
+            throw new IllegalArgumentException("University email already exists");
+        }
+
         User user = new User(username, firstname, lastname, email, hashPassword(password), university_email);
         return userRepository.save(user);
     }

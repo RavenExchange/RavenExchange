@@ -31,7 +31,7 @@ public class User {
     private String password; //Hashed (BCrypt)
 
     @Column(name = "university_email")
-    private String university_email;
+    private String universityEmail;
 
     @Column(name = "verification_status")
     private boolean verification_status = false;
@@ -50,7 +50,7 @@ public class User {
         this.lastname = lastname;
         this.email = email;
         this.password = password; //Hashed (BCrypt)
-        this.university_email = university_email;
+        this.universityEmail = university_email;
 
 
 //        verificationStatus = verifyUniversityEmail(universityEmail);
@@ -118,11 +118,11 @@ public class User {
     }
 
     public String getUniversity_email() {
-        return university_email;
+        return universityEmail;
     }
 
     public void setUniversity_email(String university_email) {
-        this.university_email = university_email;
+        this.universityEmail = university_email;
     }
 
     public boolean isVerification_status() {
@@ -148,6 +148,6 @@ public class User {
         this.profile_picture = profile_picture;
     }
     public String toString(){
-        return "User: " + username + " " + firstname + " " + lastname + " " + email + " " + password + " " + university_email + " " + verification_status + " " + creation_timestamp + " " + profile_picture + " " + user_id;
+        return "User: " + username + " " + firstname + " " + lastname + " " + email + " " + password + " " + universityEmail + " " + verification_status + " " + creation_timestamp + " " + profile_picture + " " + user_id;
     }
 }
