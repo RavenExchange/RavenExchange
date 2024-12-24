@@ -17,7 +17,7 @@ public class UserController {
     @PostMapping("/register")
     ResponseEntity<String> register(@RequestBody User user){
         userRepository.save(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully");
+        return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully: " + user);
     }
 
 }
