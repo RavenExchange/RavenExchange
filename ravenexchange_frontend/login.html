@@ -14,23 +14,36 @@
     </div>
     <!-- Login Box -->
     <div class="login-container">
-        <h2>Welcome to RavenExchange</h2>
-        <form>
+        <h1>Login to Ravens Exchange</h1>
+        <form id="loginForm">
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Your Carleton Email">
+                <label for="loginInput">Email or Username:</label>
+                <input type="text" id="loginInput" placeholder="Enter email or username" required>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Your Password">
+                <label for="passwordInput">Password:</label>
+                <input type="password" id="passwordInput" placeholder="Enter password" required>
             </div>
-            <button type="submit">Sign In</button>
-            <p>
-                <a href="#">Forgot Password?</a>
-                <br>
-                <a href="#">Create an Account</a>
-            </p>
+            <button type="submit">Login</button>
         </form>
+        <p>
+            Don't have an account? <a href="register.html">Register here</a>.
+        </p>
     </div>
+
+    <script src="auth.js"></script> <!-- JavaScript file handling API calls -->
+    <script>
+        // Attach event listener to handle login
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent traditional form submission
+
+            // Get values from input fields
+            const login = document.getElementById('loginInput').value;
+            const password = document.getElementById('passwordInput').value;
+
+            // Call the loginUser function from auth.js
+            loginUser(login, password);
+        });
+    </script>
 </body>
 </html>
