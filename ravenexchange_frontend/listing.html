@@ -29,57 +29,6 @@
         <button class="contact-seller" onclick="contactSeller()">Contact Seller</button>
     </main>
 
-    <script>
-        // Fetch listing ID from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const listingId = urlParams.get('id');
-
-        // Example listings data (mock database or server response)
-        const listings = {
-            1: {
-                title: "Carleton Hoodie",
-                price: "$40",
-                description: "A cozy hoodie perfect for winter days. Size: Medium. Excellent condition.",
-                image: "item1.jpg",
-                seller: "John Doe",
-            },
-            2: {
-                title: "Used Textbook: Math 101",
-                price: "$30",
-                description: "A used Math 101 textbook. Some highlighting, but otherwise in good condition.",
-                image: "item2.jpg",
-                seller: "Jane Smith",
-            },
-            3: {
-                title: "Laptop Stand",
-                price: "$25",
-                description: "Ergonomic laptop stand with adjustable height. Like new.",
-                image: "item3.jpg",
-                seller: "Alex Johnson",
-            },
-        };
-
-        // Populate listing details
-        const listing = listings[listingId] || null;
-        const listingContainer = document.getElementById("listing");
-
-        if (listing) {
-            listingContainer.innerHTML = `
-                <img src="${listing.image}" alt="${listing.title}" class="listing-image">
-                <h2 class="listing-title">${listing.title}</h2>
-                <p class="listing-price">${listing.price}</p>
-                <p class="listing-description">${listing.description}</p>
-                <p class="listing-seller"><strong>Seller:</strong> ${listing.seller}</p>
-            `;
-        } else {
-            listingContainer.innerHTML = `<p>Listing not found.</p>`;
-        }
-
-        // Contact seller function (example)
-        function contactSeller() {
-            alert("Contacting the seller...");
-            location.href = "messages.html";
-        }
-    </script>
+    <script src="listings.js"></script> <!-- External JS file -->
 </body>
 </html>
