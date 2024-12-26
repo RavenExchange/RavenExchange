@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversation - Ravens Exchange</title>
+    <link rel="stylesheet" href="conversation.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="RELogo.jpeg" alt="RE Logo" class="logo">
+            <h1>Ravens Exchange</h1>
+        </div>
+        <nav class="navbar">
+            <button onclick="location.href='home.html'">Home</button>
+            <button onclick="location.href='search.html'">Search</button>
+            <button onclick="location.href='messages.html'">Messages</button>
+            <button onclick="location.href='profile.html'">Profile</button>
+        </nav>
+    </header>
+
+    <!-- Conversation Section -->
+    <main class="conversation-container">
+        <h2 class="conversation-heading">Conversation</h2>
+
+        <!-- Placeholder for the conversation -->
+        <div id="conversation">
+            <!-- Messages will be dynamically loaded -->
+        </div>
+
+        <!-- Input to send a new message -->
+        <div class="message-input">
+            <input type="text" placeholder="Type your message..." id="newMessage">
+            <button id="sendMessage">Send</button>
+        </div>
+    </main>
+
+    <script>
+        // Fetch conversation ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const messageId = urlParams.get('id');
+
+        // Example data (mock database or server response)
+        const conversations = {
+            1: [
+                { sender: "John Doe", text: "Hi! Is the Carleton hoodie still available?", listingId: 1 },
+                { sender: "You", text: "Yes, it is! Would you like to see more pictures?" },
+            ],
+            2: [
+                { sender: "Jane Smith", text: "Can I get more pictures of the textbook?", listingId: 2 },
+                { sender: "You", text: "Sure, I'll send them shortly!" },
+            ],
+            3: [
+                { sender: "Alex Johnson", text: "Is the laptop stand negotiable?", listingId: 3 },
+                { sender: "You", text: "Yes, what price are you thinking?" },
+            ],
+        };
+
+        // Load the conversation dynamically
+        const conversationContainer = document.getElementById("conversation");
+        const conversation = conversations[messageId] || [];
+
+        // Render messages
+        conversation.forEach(message => {
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("message");
+            messageElement.innerHTML = `<strong>${message.sender}:</strong> ${message.text}`;
+
+            // Add a link to the listing if it exists
+            if (message.listingId) {
+                const listingLink = document.createElement("a");
+                listingLink.href = `listing.html?id=${message.listingId}`;
+                listingLink.textContent = "View Listing";
+                listingLink.classList.add("listing-link");
+                messageElement.appendChild(listingLink);
+            }
+
+            conversationContainer.appendChild(messageElement);
+        });
+
+        // Handle sending a new message (frontend only for now)
+        document.getElementById("sendMessage").addEventListener("click", () => {
+            const newMessage = document.getElementById("newMessage").value;
+            if (newMessage) {
+                const messageElement = document.createElement("div");
+                messageElement.classList.add("message");
+                messageElement.innerHTML = `<strong>You:</strong> ${newMessage}`;
+                conversationContainer.appendChild(messageElement);
+                document.getElementById("newMessage").value = ""; // Clear input
+            }
+        });
+    </script>
+</body>
+</html>

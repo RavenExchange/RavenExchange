@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing Details - Ravens Exchange</title>
+    <link rel="stylesheet" href="listing.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="RELogo.jpeg" alt="RE Logo" class="logo">
+            <h1>Ravens Exchange</h1>
+        </div>
+        <nav class="navbar">
+            <button onclick="location.href='home.html'">Home</button>
+            <button onclick="location.href='search.html'">Search</button>
+            <button onclick="location.href='messages.html'">Messages</button>
+            <button onclick="location.href='profile.html'">Profile</button>
+        </nav>
+    </header>
+
+    <!-- Listing Details Section -->
+    <main class="listing-container">
+        <div id="listing">
+            <!-- Content will be dynamically populated -->
+        </div>
+        <button class="contact-seller" onclick="contactSeller()">Contact Seller</button>
+    </main>
+
+    <script src="listings.js"></script> <!-- External JS file -->
+</body>
+</html>

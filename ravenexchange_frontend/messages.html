@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - Ravens Exchange</title>
+    <link rel="stylesheet" href="messages.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="RELogo.jpeg" alt="RE Logo" class="logo">
+            <h1>Ravens Exchange</h1>
+        </div>
+        <nav class="navbar">
+            <button onclick="location.href='home.html'">Home</button>
+            <button onclick="location.href='search.html'">Search</button>
+            <button onclick="location.href='messages.html'">Messages</button>
+            <button onclick="location.href='profile.html'">Profile</button>
+        </nav>
+    </header>
+
+    <!-- Messages Section -->
+    <main class="messages-container">
+        <h2 class="messages-heading">Your Messages</h2>
+
+        <!-- Example Messages -->
+        <div class="message-item" data-id="1" onclick="openConversation(1)">
+            <img src="user1.jpg" alt="User Profile" class="message-avatar">
+            <div class="message-details">
+                <h3 class="message-sender">John Doe</h3>
+                <p class="message-snippet">Hi! Is the Carleton hoodie still available?</p>
+                <p class="message-time">10:45 AM</p>
+            </div>
+        </div>
+
+        <div class="message-item" data-id="2" onclick="openConversation(2)">
+            <img src="user2.jpg" alt="User Profile" class="message-avatar">
+            <div class="message-details">
+                <h3 class="message-sender">Jane Smith</h3>
+                <p class="message-snippet">Can I get more pictures of the textbook?</p>
+                <p class="message-time">Yesterday</p>
+            </div>
+        </div>
+
+        <div class="message-item" data-id="3" onclick="openConversation(3)">
+            <img src="user3.jpg" alt="User Profile" class="message-avatar">
+            <div class="message-details">
+                <h3 class="message-sender">Alex Johnson</h3>
+                <p class="message-snippet">Is the laptop stand negotiable?</p>
+                <p class="message-time">2 days ago</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Function to open the conversation page
+        function openConversation(messageId) {
+            // Navigate to the conversation page, passing the message ID
+            location.href = `conversation.html?id=${messageId}`;
+        }
+    </script>
+</body>
+</html>

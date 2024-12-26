@@ -1,0 +1,123 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 20px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo and Title Centering */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the logo and title vertically */
+    gap: 10px; /* Space between logo and title */
+    text-align: center;
+}
+
+.logo {
+    width: 60px; /* Consistent size */
+    height: auto;
+    object-fit: contain;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.navbar button {
+    background-color: #fff;
+    color: #1e90ff;
+    border: 2px solid #1e90ff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.navbar button:hover {
+    background-color: #1e90ff;
+    color: #fff;
+}
+
+/* Listing Container */
+.listing-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Listing Image */
+.listing-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    margin: 0 auto 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Listing Title */
+.listing-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Listing Price */
+.listing-price {
+    font-size: 20px;
+    color: #1e90ff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Listing Description */
+.listing-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Listing Seller */
+.listing-seller {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Contact Seller Button */
+.contact-seller {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-seller:hover {
+    background-color: #0056b3;
+}

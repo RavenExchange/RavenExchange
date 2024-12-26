@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Ravens Exchange</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="RELogo.jpeg" alt="RE Logo" class="logo">
+            <h1>Ravens Exchange</h1>
+        </div>
+        <nav class="navbar">
+            <button onclick="location.href='home.html'">Home</button>
+            <button onclick="location.href='search.html'">Search</button>
+            <button onclick="location.href='messages.html'">Messages</button>
+            <button onclick="location.href='profile.html'">Profile</button>
+        </nav>
+    </header>
+
+    <!-- Profile Section -->
+    <main class="profile-container">
+        <!-- User Details -->
+        <section class="user-details">
+            <img src="user-profile.jpg" alt="User Profile Picture" class="profile-picture">
+            <h2 class="user-name">John Doe</h2>
+            <p class="user-email">johndoe@carleton.ca</p>
+            <button class="edit-profile-button">Edit Profile</button>
+        </section>
+
+        <!-- Active Listings -->
+        <section class="active-listings">
+            <h2>Active Listings</h2>
+            <div class="listing-item">
+                <img src="item1.jpg" alt="Item Image" class="listing-image">
+                <div class="listing-details">
+                    <h3 class="listing-title">Carleton Hoodie</h3>
+                    <p class="listing-price">$40</p>
+                    <button class="delete-listing-button">Delete</button>
+                </div>
+            </div>
+            <div class="listing-item">
+                <img src="item2.jpg" alt="Item Image" class="listing-image">
+                <div class="listing-details">
+                    <h3 class="listing-title">Used Textbook: Math 101</h3>
+                    <p class="listing-price">$30</p>
+                    <button class="delete-listing-button">Delete</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section class="settings">
+            <h2>Settings</h2>
+            <button class="logout-button">Log Out</button>
+        </section>
+    </main>
+
+    <script>
+        // Example functionality for deleting a listing
+        const deleteButtons = document.querySelectorAll('.delete-listing-button');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const listingItem = e.target.closest('.listing-item');
+                listingItem.remove();
+                alert('Listing deleted.');
+            });
+        });
+
+        // Example functionality for editing the profile
+        document.querySelector('.edit-profile-button').addEventListener('click', () => {
+            alert('Edit Profile functionality coming soon.');
+        });
+
+        // Example functionality for logging out
+        document.querySelector('.logout-button').addEventListener('click', () => {
+            alert('Logging out...');
+            location.href = 'login.html'; // Redirect to login page
+        });
+    </script>
+</body>
+</html>
