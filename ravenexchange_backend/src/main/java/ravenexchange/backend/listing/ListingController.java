@@ -27,6 +27,7 @@ public class ListingController {
      *
      * @param offset Number of listings to skip
      * @param limit Number of listings to get
+     * @param category Category of the listing
      * @return Returns a JSON response containing the status, message, size, and a list of dictionaries containing listing information
      */
     @GetMapping("/all")
@@ -52,6 +53,34 @@ public class ListingController {
             jsonResponse.put("status", HttpStatus.OK);
             jsonResponse.put("size", listings.size());
             jsonResponse.put("data", listings);
+
+            return ResponseEntity.status(HttpStatus.OK).body(jsonResponse);
+        }
+        catch (Exception e){
+            jsonResponse.put("message", e.getMessage());
+            jsonResponse.put("status", HttpStatus.BAD_REQUEST);
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonResponse);
+        }
+    }
+
+    /**
+     * Gets a specific listing based on the listing id
+     *
+     * @param listingId Id of the listing
+     * @return Returns a JSON response containing the status, message, and a dictionary containing listing information
+     */
+    @GetMapping("/get")
+    ResponseEntity<Map<String, Object>> getListing(@RequestParam(value = "listingId") Long listingId) {
+
+        Map<String, Object> jsonResponse = new HashMap<>(); //JSON response map
+
+        try {
+            Map<String, Object> listing = listingService.getListing(listingId);
+
+            jsonResponse.put("message", "success");
+            jsonResponse.put("status", HttpStatus.OK);
+            jsonResponse.put("data", listing);
 
             return ResponseEntity.status(HttpStatus.OK).body(jsonResponse);
         }

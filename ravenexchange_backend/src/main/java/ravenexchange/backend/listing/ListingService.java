@@ -18,6 +18,10 @@ public class ListingService {
         List<Map<String, Object>> listings = new ArrayList<>();
         List<Listing> listingEntities;
 
+        if(offset < 0 || limit <= 0){
+            throw new IllegalArgumentException("Offset must be greater than or equal to 0 and limit must be greater than 0");
+        }
+
         if(category == null){
             listingEntities = listingRepository.findTop10ByOrderByListingIdDesc(); //Find by id in descending order
         }
@@ -32,5 +36,19 @@ public class ListingService {
         }
 
         return listings;
+    }
+
+    public Map<String, Object> getListing(Long listingId) {
+        if(listingId == null){
+            throw new IllegalArgumentException("Listing ID cannot be null");
+        }
+
+        if(listingId <= 0){
+            throw new IllegalArgumentException("Listing ID must be greater than 0");
+        }
+
+        Listing listing = listingRepository.findByListingId(listingId);
+
+        return listing.toMap();
     }
 }
