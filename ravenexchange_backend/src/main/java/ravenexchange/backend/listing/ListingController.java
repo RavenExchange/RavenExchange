@@ -37,11 +37,11 @@ public class ListingController {
 
         Map<String, Object> jsonResponse = new HashMap<>(); //JSON response map
 
-        if(offset == null){
+        if(offset == null){ //Default 0
             offset = 0;
         }
 
-        if(limit == null){
+        if(limit == null){ //Default 10
             limit = 10;
         }
 
