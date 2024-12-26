@@ -1,6 +1,5 @@
 package ravenexchange.backend.user;
 
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,14 +15,13 @@ public class UserController {
     //UserController constructor
     public UserController(UserRepository userRepository){
         this.userService = new UserService(userRepository);
-
     }
 
     /**
      * Registers a new user
      *
      * @param user User object containing user information given via POST request in JSON format
-     * @return Returns a JSON response containing the status, message, and data of the user
+     * @return Returns a JSON response containing the status and message
      */
     @PostMapping("/register")
     ResponseEntity<Map<String,Object>> register(@RequestBody User user){
@@ -46,7 +44,12 @@ public class UserController {
         }
     }
 
-    //Login user
+    /**
+     * Verifies if a user's login credentials are correct
+     *
+     * @param loginRequest JSON request containing the user's login and password
+     * @return Returns a JSON response containing the status and message
+     */
     @PostMapping("/login")
     ResponseEntity<Map<String,Object>> login(@RequestBody Map<String, String> loginRequest){
         Map<String, Object> jsonResponse = new HashMap<>(); //JSON response map
