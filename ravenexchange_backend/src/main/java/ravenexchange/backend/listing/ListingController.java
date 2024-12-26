@@ -2,10 +2,7 @@ package ravenexchange.backend.listing;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -70,8 +67,8 @@ public class ListingController {
      * @param listingId Id of the listing
      * @return Returns a JSON response containing the status, message, and a dictionary containing listing information
      */
-    @GetMapping("/get")
-    ResponseEntity<Map<String, Object>> getListing(@RequestParam(value = "listingId") Long listingId) {
+    @GetMapping("/get{name}")
+    ResponseEntity<Map<String, Object>> getListing(@PathVariable("name") Long listingId) {
 
         Map<String, Object> jsonResponse = new HashMap<>(); //JSON response map
 
