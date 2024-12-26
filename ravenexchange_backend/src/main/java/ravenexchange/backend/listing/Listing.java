@@ -121,6 +121,7 @@ public class Listing {
         return listingCategory;
     }
 
+    //Converts the listing object to a map
     public Map<String, Object> toMap() {
         HashMap<String, Object> listingMap = new HashMap<>();
         listingMap.put("listing_id", listingId);
