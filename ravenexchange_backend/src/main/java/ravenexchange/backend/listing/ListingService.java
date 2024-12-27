@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Service
 public class ListingService {
@@ -114,6 +115,10 @@ public class ListingService {
 
         if(listingOld == null){
             throw new IllegalArgumentException("Listing does not exist");
+        }
+
+        if(!Objects.equals(listingOld.getSellerId(), listingNew.getSellerId())){
+            throw new IllegalArgumentException("Seller id can't change");
         }
 
         listingRepository.save(listingNew);
