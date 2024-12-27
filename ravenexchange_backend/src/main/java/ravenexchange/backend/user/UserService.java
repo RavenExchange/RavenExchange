@@ -36,11 +36,16 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User loginUser(String login, String password, boolean loginIsEmail){
+    public User loginUser(String login, String password){
         User user;
+        boolean loginIsEmail = login.contains("@"); //Check if login is an email
 
         //Check if the login is an email or username
         if(loginIsEmail){
+            if(login.contains("cmail")){
+                throw new IllegalArgumentException("Login can't be cmail");
+            }
+
             user = userRepository.findByEmail(login);
         }
         else{

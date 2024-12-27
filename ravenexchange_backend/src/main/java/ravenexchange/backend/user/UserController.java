@@ -33,7 +33,7 @@ public class UserController {
         try {
             userService.createUser(user.getUsername(), user.getFirstname(), user.getLastname(), user.getEmail(), user.getPassword(), user.getUniversity_email());
 
-            jsonResponse.put("message", "User registered successfully");
+            jsonResponse.put("message", "success");
             jsonResponse.put("status", HttpStatus.CREATED);
 
             return ResponseEntity.status(HttpStatus.CREATED).body(jsonResponse);
@@ -54,11 +54,10 @@ public class UserController {
         try {
             String login = loginRequest.get("login");
             String password = loginRequest.get("password");
-            boolean loginIsEmail = login.contains("@"); //Check if login is an email
 
-            userService.loginUser(login, password, loginIsEmail);
+            userService.loginUser(login, password);
 
-            jsonResponse.put("message", "User logged in successfully");
+            jsonResponse.put("message", "success");
             jsonResponse.put("status", HttpStatus.OK);
 
             return ResponseEntity.status(HttpStatus.OK).body(jsonResponse);
