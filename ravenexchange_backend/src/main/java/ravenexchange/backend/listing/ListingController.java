@@ -116,4 +116,56 @@ public class ListingController {
 
     }
 
+    /**
+     * Deletes a listing by id
+     *
+     * @param listingId Id of the listing to delete
+     * @return Returns a JSON response containing the status and message
+     */
+    @PostMapping("/delete{name}")
+    ResponseEntity<Map<String, Object>> deleteListing(@PathVariable("name") Long listingId){
+        Map<String, Object> jsonResponse = new HashMap<>(); //JSON response map
+
+        try {
+            listingService.deleteListing(listingId);
+
+            jsonResponse.put("message", "success");
+            jsonResponse.put("status", HttpStatus.OK);
+
+            return ResponseEntity.status(HttpStatus.OK).body(jsonResponse);
+        }
+        catch (Exception e){
+            jsonResponse.put("message", e.getMessage());
+            jsonResponse.put("status", HttpStatus.BAD_REQUEST);
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonResponse);
+        }
+    }
+
+    /**
+     * Updates a listing
+     *
+     * @param listing Listing object containing listing information given via POST request in JSON format
+     * @return Returns a JSON response containing the status and message
+     */
+    @PostMapping("/update")
+    ResponseEntity<Map<String, Object>> updateListing(@RequestBody Listing listing){
+        Map<String, Object> jsonResponse = new HashMap<>(); //JSON response map
+
+        try {
+            listingService.updateListing(listing);
+
+            jsonResponse.put("message", "success");
+            jsonResponse.put("status", HttpStatus.OK);
+
+            return ResponseEntity.status(HttpStatus.OK).body(jsonResponse);
+        }
+        catch (Exception e){
+            jsonResponse.put("message", e.getMessage());
+            jsonResponse.put("status", HttpStatus.BAD_REQUEST);
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonResponse);
+        }
+    }
+
 }

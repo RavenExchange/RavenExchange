@@ -15,10 +15,10 @@ public class Listing {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "listing_id")
-    private long listingId;
+    private Long listingId;
 
     @Column(name = "seller_id")
-    private long sellerId;
+    private Long sellerId;
 
     @Column(name = "listing_name")
     private String listingName;
@@ -43,7 +43,7 @@ public class Listing {
 
     public Listing() {}
 
-    public Listing(long sellerId, String listingName, String listingDescription, double listingPrice, String[] listingPictures, String listingCategory) {
+    public Listing(Long sellerId, String listingName, String listingDescription, double listingPrice, String[] listingPictures, String listingCategory) {
         this.sellerId = sellerId;
         this.listingName = listingName;
         this.listingDescription = listingDescription;
@@ -85,11 +85,11 @@ public class Listing {
         this.sellerId = sellerId;
     }
 
-    public long getListingId() {
+    public Long getListingId() {
         return listingId;
     }
 
-    public long getSellerId() {
+    public Long getSellerId() {
         return sellerId;
     }
 

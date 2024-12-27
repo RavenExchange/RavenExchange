@@ -82,4 +82,41 @@ public class ListingService {
         listingRepository.save(listing);
     }
 
+    public void deleteListing(Long listingId) {
+        if(listingId == null){
+            throw new IllegalArgumentException("Listing ID cannot be null");
+        }
+
+        if(listingId <= 0){
+            throw new IllegalArgumentException("Listing ID must be greater than 0");
+        }
+
+        Listing listing = listingRepository.findByListingId(listingId);
+
+        if(listing == null){
+            throw new IllegalArgumentException("Listing does not exist");
+        }
+
+        listingRepository.delete(listing);
+    }
+
+    public void updateListing(Listing listingNew) {
+        //Validate input
+        if(listingNew.getListingId() == null){
+            throw new IllegalArgumentException("Listing ID cannot be null");
+        }
+
+        if(listingNew.getListingId() <= 0){
+            throw new IllegalArgumentException("Listing ID must be greater than 0");
+        }
+
+        Listing listingOld = listingRepository.findByListingId(listingNew.getListingId());
+
+        if(listingOld == null){
+            throw new IllegalArgumentException("Listing does not exist");
+        }
+
+        listingRepository.save(listingNew);
+    }
+
 }
