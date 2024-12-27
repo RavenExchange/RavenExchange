@@ -30,7 +30,7 @@ public class Listing {
     private double listingPrice;
 
     @Column(name = "listing_picture")
-    private String listingPicture;
+    private String[] listingPictures;
 
     @Column(name = "sold_status")
     private boolean soldStatus = false;
@@ -43,12 +43,12 @@ public class Listing {
 
     public Listing() {}
 
-    public Listing(long sellerId, String listingName, String listingDescription, double listingPrice, String listingPicture, String listingCategory) {
+    public Listing(long sellerId, String listingName, String listingDescription, double listingPrice, String[] listingPictures, String listingCategory) {
         this.sellerId = sellerId;
         this.listingName = listingName;
         this.listingDescription = listingDescription;
         this.listingPrice = listingPrice;
-        this.listingPicture = listingPicture;
+        this.listingPictures = listingPictures;
         this.listingCategory = listingCategory;
     }
 
@@ -61,8 +61,8 @@ public class Listing {
         this.soldStatus = soldStatus;
     }
 
-    public void setListingPicture(String listingPicture) {
-        this.listingPicture = listingPicture;
+    public void setListingPicture(String[] listingPicture) {
+        this.listingPictures = listingPicture;
     }
 
     public void setListingCategory(String listingCategory) {
@@ -105,8 +105,8 @@ public class Listing {
         return listingPrice;
     }
 
-    public String getListingPicture() {
-        return listingPicture;
+    public String[] getListingPicture() {
+        return listingPictures;
     }
 
     public boolean getSoldStatus() {
@@ -129,7 +129,7 @@ public class Listing {
         listingMap.put("listing_name", listingName);
         listingMap.put("listing_description", listingDescription);
         listingMap.put("listing_price", listingPrice);
-        listingMap.put("listing_picture", listingPicture);
+        listingMap.put("listing_pictures", listingPictures);
         listingMap.put("sold_status", soldStatus);
         listingMap.put("listing_timestamp", listingTimestamp);
         listingMap.put("listing_category", listingCategory);

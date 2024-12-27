@@ -88,4 +88,32 @@ public class ListingController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonResponse);
         }
     }
+
+    /**
+     * Creates a new listing
+     *
+     * @param listing Listing object containing listing information given via POST request in JSON format
+     * @return Returns a JSON response containing the status and message
+     */
+    @PostMapping("/create")
+    ResponseEntity<Map<String, Object>> createListing(@RequestBody Listing listing){
+        Map<String, Object> jsonResponse = new HashMap<>(); //JSON response map
+
+        try {
+            listingService.createListing(listing.getSellerId(), listing.getListingName(), listing.getListingDescription(), listing.getListingPrice(), listing.getListingPicture(), listing.getListingCategory());
+
+            jsonResponse.put("message", "success");
+            jsonResponse.put("status", HttpStatus.CREATED);
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(jsonResponse);
+        }
+        catch (Exception e){
+            jsonResponse.put("message", e.getMessage());
+            jsonResponse.put("status", HttpStatus.BAD_REQUEST);
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonResponse);
+        }
+
+    }
+
 }

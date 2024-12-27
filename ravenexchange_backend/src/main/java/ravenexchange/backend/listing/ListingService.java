@@ -51,4 +51,34 @@ public class ListingService {
 
         return listing.toMap();
     }
+
+    public void createListing(Long sellerId, String listingName, String listingDescription, double listingPrice, String[] listingPictures, String listingCategory) {
+        if(sellerId == null){
+            throw new IllegalArgumentException("Seller ID cannot be null");
+        }
+
+        if(sellerId <= 0){
+            throw new IllegalArgumentException("Seller ID must be greater than 0");
+        }
+
+        if(listingName == null || listingName.isEmpty()){
+            throw new IllegalArgumentException("Listing name cannot be null or empty");
+        }
+
+        if(listingDescription == null || listingDescription.isEmpty()){
+            throw new IllegalArgumentException("Listing description cannot be null or empty");
+        }
+
+        if(listingPrice < 0){
+            throw new IllegalArgumentException("Listing price cannot be less than 0");
+        }
+
+        if(listingPictures == null || listingPictures.length == 0){
+            throw new IllegalArgumentException("Listing pictures cannot be null or empty");
+        }
+
+        Listing listing = new Listing(sellerId, listingName, listingDescription, listingPrice, listingPictures, listingCategory);
+        listingRepository.save(listing);
+    }
+
 }
