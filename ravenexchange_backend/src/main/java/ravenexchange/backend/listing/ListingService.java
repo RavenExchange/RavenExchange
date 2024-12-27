@@ -124,4 +124,13 @@ public class ListingService {
         listingRepository.save(listingNew);
     }
 
+    public List<Listing> searchListing(String listingName){
+        //Validate input
+        if(listingName == null || listingName.isEmpty()){
+            throw new IllegalArgumentException("Listing name cannot be empty or null");
+        }
+
+        return listingRepository.findByListingNameContaining(listingName);
+    }
+
 }

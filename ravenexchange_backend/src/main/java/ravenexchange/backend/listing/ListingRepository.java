@@ -19,4 +19,6 @@ public interface ListingRepository extends JpaRepository<Listing, Long> {
 
     // Find a listing by listing_id
     Listing findByListingId(Long listingId);
+
+    List<Listing> findByListingNameContaining(String listingName);
 }

@@ -168,4 +168,32 @@ public class ListingController {
         }
     }
 
+    /**
+     * Searches for listings by name
+     *
+     * @param listingName Name of the listing to search for
+     * @return Returns a JSON response containing the status, message, number of listings, and a list of listings
+     */
+    @GetMapping("/search{name}")
+    ResponseEntity<Map<String, Object>> searchListing(@PathVariable("name") String listingName){
+        Map<String, Object> jsonResponse = new HashMap<>(); //JSON response map
+
+        try {
+            List<Listing> listings = listingService.searchListing(listingName);
+
+            jsonResponse.put("message", "success");
+            jsonResponse.put("status", HttpStatus.OK);
+            jsonResponse.put("size", listings.size());
+            jsonResponse.put("data", listings);
+
+            return ResponseEntity.status(HttpStatus.OK).body(jsonResponse);
+        }
+        catch (Exception e){
+            jsonResponse.put("message", e.getMessage());
+            jsonResponse.put("status", HttpStatus.BAD_REQUEST);
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonResponse);
+        }
+    }
+
 }
