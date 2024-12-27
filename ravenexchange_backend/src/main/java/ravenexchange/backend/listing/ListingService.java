@@ -53,6 +53,7 @@ public class ListingService {
     }
 
     public void createListing(Long sellerId, String listingName, String listingDescription, double listingPrice, String[] listingPictures, String listingCategory) {
+        //Validate input
         if(sellerId == null){
             throw new IllegalArgumentException("Seller ID cannot be null");
         }
