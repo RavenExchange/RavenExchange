@@ -49,6 +49,27 @@ async function registerUser(userDetails) {
     }
 }
 
+async function forgotPassword(email) {
+    try {
+        const response = await fetch(`${BASE_URL}/forgot-password`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            alert(data.message || 'Password reset link sent successfully!');
+        } else {
+            const error = await response.json();
+            alert(error.message || 'Failed to send reset link');
+        }
+    } catch (err) {
+        console.error('Error sending reset link:', err);
+        alert('An error occurred while sending the reset link.');
+    }
+}
+
 // Example usage: Attach these to forms in your HTML
 // loginUser('john_doe', 'securepassword123');
 // registerUser({

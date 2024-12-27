@@ -50,6 +50,13 @@
                     <button class="delete-listing-button">Delete</button>
                 </div>
             </div>
+
+            <!-- Manage and Create Listings Buttons -->
+            <div class="listing-actions">
+                <button class="manage-listings-button" onclick="location.href='managelisting.html'">
+                    Manage Listings
+                </button>
+            </div>
         </section>
 
         <!-- Settings Section -->
@@ -60,7 +67,7 @@
     </main>
 
     <script>
-        // Example functionality for deleting a listing
+        // Delete listing functionality
         const deleteButtons = document.querySelectorAll('.delete-listing-button');
         deleteButtons.forEach(button => {
             button.addEventListener('click', (e) => {
@@ -70,12 +77,12 @@
             });
         });
 
-        // Example functionality for editing the profile
+        // Edit profile functionality placeholder
         document.querySelector('.edit-profile-button').addEventListener('click', () => {
             alert('Edit Profile functionality coming soon.');
         });
 
-        // Example functionality for logging out
+        // Log out functionality
         document.querySelector('.logout-button').addEventListener('click', () => {
             alert('Logging out...');
             location.href = 'login.html'; // Redirect to login page

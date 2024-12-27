@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password - Ravens Exchange</title>
+    <link rel="stylesheet" href="reset.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="RELogo.jpeg" alt="RE Logo" class="logo">
+            <h1>Ravens Exchange</h1>
+        </div>
+    </header>
+
+    <main class="forgot-password-container">
+        <h2>Forgot Password</h2>
+        <p>Enter your email address below to receive a password reset link.</p>
+        <form id="forgotPasswordForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <button type="submit">Send Reset Link</button>
+        </form>
+        <p>Remembered your password? <a href="login.html">Login here</a></p>
+    </main>
+
+    <script src="auth.js"></script>
+    <script>
+        // Attach the form submission handler
+        document.getElementById('forgotPasswordForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Collect form data
+            const email = document.getElementById('email').value;
+
+            // Call the forgotPassword function
+            forgotPassword(email);
+        });
+    </script>
+</body>
+</html>

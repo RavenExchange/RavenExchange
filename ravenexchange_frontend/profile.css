@@ -28,7 +28,7 @@ body {
 }
 
 .logo {
-    width: 50px; /* Adjusted size for smaller logo */
+    width: 50px;
     height: auto;
     object-fit: contain;
 }
@@ -145,6 +145,32 @@ body {
 
 .delete-listing-button:hover {
     background-color: #d9363e;
+}
+
+/* Listing Actions */
+.listing-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.manage-listings-button,
+.create-listing-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #1e90ff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 48%; /* Make buttons equal width */
+}
+
+.manage-listings-button:hover,
+.create-listing-button:hover {
+    background-color: #0056b3;
 }
 
 /* Settings Section */

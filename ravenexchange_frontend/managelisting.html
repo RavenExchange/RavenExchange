@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Listings - Ravens Exchange</title>
+    <link rel="stylesheet" href="managelisting.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="RELogo.jpeg" alt="RE Logo" class="logo">
+            <h1>Ravens Exchange</h1>
+        </div>
+        <nav class="navbar">
+            <button onclick="location.href='home.html'">Home</button>
+            <button onclick="location.href='search.html'">Search</button>
+            <button onclick="location.href='messages.html'">Messages</button>
+            <button onclick="location.href='profile.html'">Profile</button>
+        </nav>
+    </header>
+
+    <!-- Manage Listings Section -->
+    <main class="manage-listings-container">
+        <h2>Manage Listings</h2>
+
+        <!-- Create/Edit Listing Form -->
+        <section class="create-listing">
+            <h3 id="formTitle">Create a New Listing</h3>
+            <form id="listingForm">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" placeholder="Enter listing title" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" placeholder="Enter price" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" placeholder="Enter a description" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" id="image" accept="image/*">
+                </div>
+                <button type="submit">Create Listing</button>
+            </form>
+        </section>
+
+        <!-- Active Listings -->
+        <section class="active-listings">
+            <h3>Your Active Listings</h3>
+            <div id="listingsContainer">
+                <!-- Listings will be dynamically populated here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="managelisting.js"></script>
+</body>
+</html>
