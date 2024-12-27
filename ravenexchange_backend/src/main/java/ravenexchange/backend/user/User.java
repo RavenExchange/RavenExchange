@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "raven_user")
@@ -13,7 +14,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    private long user_id;
+    private long userId;
 
     @Column(name = "username")
     private String username;
@@ -34,13 +35,16 @@ public class User {
     private String universityEmail;
 
     @Column(name = "verification_status")
-    private boolean verification_status = false;
+    private boolean verificationStatus = false;
 
     @Column(name = "creation_timestamp")
-    private Timestamp creation_timestamp;
+    private Timestamp creationTimestamp;
 
     @Column(name = "profile_picture")
-    private String profile_picture = "default.jpg";
+    private String profilePicture = "default.jpg";
+
+    @Column(name = "listings")
+    private ArrayList<Integer> listings; //List of listing IDs
 
     public User() {}
 
@@ -65,17 +69,15 @@ public class User {
     //Ensure creation_timestamp is set before persisting
     @PrePersist
     private void onCreate() {
-        if (this.creation_timestamp == null) {
-            this.creation_timestamp = Timestamp.valueOf(LocalDateTime.now());
-        }
+        creationTimestamp = Timestamp.valueOf(LocalDateTime.now());
     }
 
     public long getUser_id() {
-        return user_id;
+        return userId;
     }
 
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
+    public void setUser_id(long userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -126,28 +128,28 @@ public class User {
     }
 
     public boolean isVerification_status() {
-        return verification_status;
+        return verificationStatus;
     }
 
-    public void setVerification_status(boolean verification_status) {
-        this.verification_status = verification_status;
+    public void setVerification_status(boolean verificationStatus) {
+        this.verificationStatus = verificationStatus;
     }
 
     public Timestamp getCreation_timestamp() {
-        return creation_timestamp;
+        return creationTimestamp;
     }
 
-    public void setCreation_timestamp(Timestamp creation_timestamp) {
-        this.creation_timestamp = creation_timestamp;
+    public void setCreation_timestamp(Timestamp creationTimestamp) {
+        this.creationTimestamp = creationTimestamp;
     }
 
     public String getProfile_picture() {
-        return profile_picture;
+        return profilePicture;
     }
-    public void setProfile_picture(String profile_picture) {
-        this.profile_picture = profile_picture;
+    public void setProfile_picture(String profilePicture) {
+        this.profilePicture = profilePicture;
     }
     public String toString(){
-        return "User: " + username + " " + firstname + " " + lastname + " " + email + " " + password + " " + universityEmail + " " + verification_status + " " + creation_timestamp + " " + profile_picture + " " + user_id;
+        return "User: " + username + " " + firstname + " " + lastname + " " + email + " " + password + " " + universityEmail + " " + verificationStatus + " " + creationTimestamp + " " + profilePicture + " " + userId;
     }
 }

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    private final int minPasswordLength = 6;
     private final UserRepository userRepository;
 
     //UserService constructor
@@ -16,6 +15,7 @@ public class UserService {
 
     public User createUser(String username, String firstname, String lastname, String email, String password, String university_email) {
         //Validate user credentials
+        int minPasswordLength = 6;
         if(password.length() < minPasswordLength){
             throw new IllegalArgumentException("Password must be at least " + minPasswordLength + " characters long");
         }

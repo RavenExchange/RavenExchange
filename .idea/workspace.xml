@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9f0f7a2-8e0d-4691-8851-1eca14968417" name="Changes" comment="" />
+    <list default="true" id="2cce40b3-181e-4c63-9dc1-67ac1ab2136d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,7 +16,7 @@
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 8
 }]]></component>
-  <component name="ProjectId" id="2qmYgYteGtOWEkwe8KmSA9WwNTJ" />
+  <component name="ProjectId" id="2qjIqZei3JxB6nPndVwHUf7vlZM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -25,19 +25,19 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/haash/Desktop/RavenExchange/ravenexchange_backend"
+    "last_opened_file_path": "C:/Users/krish/OneDrive/Desktop/COMP2402/RavenExchange"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a9f0f7a2-8e0d-4691-8851-1eca14968417" name="Changes" comment="" />
-      <created>1735269330351</created>
+      <changelist id="2cce40b3-181e-4c63-9dc1-67ac1ab2136d" name="Changes" comment="" />
+      <created>1735169748661</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1735269330351</updated>
+      <updated>1735169748661</updated>
     </task>
     <servers />
   </component>
