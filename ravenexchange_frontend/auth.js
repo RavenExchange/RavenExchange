@@ -13,11 +13,8 @@ async function loginUser(login, password) {
             const data = await response.json();
             console.log('Login successful:', data);
 
-            // Save user information to sessionStorage or cookies
-            sessionStorage.setItem('user', JSON.stringify(data.user));
-
             // Redirect to profile or home page
-            window.location.href = 'profile.html';
+            window.location.href = 'home.html';
         } else {
             const error = await response.json();
             alert(error.message || 'Login failed');
