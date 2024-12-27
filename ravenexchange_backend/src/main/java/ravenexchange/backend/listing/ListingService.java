@@ -124,13 +124,27 @@ public class ListingService {
         listingRepository.save(listingNew);
     }
 
-    public List<Listing> searchListing(String listingName){
+    public List<Listing> searchListing(String query, Integer offset, Integer limit) {
         //Validate input
-        if(listingName == null || listingName.isEmpty()){
+        if(query == null || query.isEmpty()){
             throw new IllegalArgumentException("Listing name cannot be empty or null");
         }
 
-        return listingRepository.findByListingNameContaining(listingName);
+        if(offset == null || offset < 0){
+            throw new IllegalArgumentException("Offset must be greater than or equal to 0");
+        }
+
+        if(limit == null || limit <= 0){
+            throw new IllegalArgumentException("Limit must be greater than 0");
+        }
+
+        List<Listing> listings = listingRepository.findByListingNameContaining(query);
+
+        if(listings.isEmpty() || offset >= listings.size()){
+            return new ArrayList<>();
+        }
+
+        return listings.subList(offset, Math.min(offset + limit, listings.size()));
     }
 
 }

@@ -171,15 +171,21 @@ public class ListingController {
     /**
      * Searches for listings by name
      *
-     * @param listingName Name of the listing to search for
+     * @param query Name of the listing to search for
+     * @param offset Number of listings to skip
+     * @param limit Number of listings to get
      * @return Returns a JSON response containing the status, message, number of listings, and a list of listings
      */
-    @GetMapping("/search{name}")
-    ResponseEntity<Map<String, Object>> searchListing(@PathVariable("name") String listingName){
+    @GetMapping("/search")
+    ResponseEntity<Map<String, Object>> searchListing(
+            @RequestParam(value = "query", required = false) String query,
+            @RequestParam(value = "offset", required = false) Integer offset,
+            @RequestParam(value = "limit", required = false) Integer limit){
+
         Map<String, Object> jsonResponse = new HashMap<>(); //JSON response map
 
         try {
-            List<Listing> listings = listingService.searchListing(listingName);
+            List<Listing> listings = listingService.searchListing(query, offset, limit);
 
             jsonResponse.put("message", "success");
             jsonResponse.put("status", HttpStatus.OK);
@@ -195,5 +201,4 @@ public class ListingController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonResponse);
         }
     }
-
 }

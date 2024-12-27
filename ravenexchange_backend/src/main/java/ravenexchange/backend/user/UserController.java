@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -72,5 +73,39 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(jsonResponse);
         }
 
+    }
+
+    /**
+     * Searches for users by username
+     *
+     * @param query Username to search for
+     * @param offset Number of users to skip
+     * @param limit Number of users to get
+     * @return Returns a JSON response containing the status, message, number of users, and a list of users
+     */
+    @GetMapping("/search")
+    ResponseEntity<Map<String, Object>> searchListing(
+            @RequestParam(value = "query", required = false) String query,
+            @RequestParam(value = "offset", required = false) Integer offset,
+            @RequestParam(value = "limit", required = false) Integer limit) {
+
+        Map<String, Object> jsonResponse = new HashMap<>(); //JSON response map
+
+        try {
+            List<User> users = userService.searchUser(query, offset, limit);
+
+            jsonResponse.put("message", "success");
+            jsonResponse.put("status", HttpStatus.OK);
+            jsonResponse.put("size", users.size());
+            jsonResponse.put("data", users);
+
+            return ResponseEntity.status(HttpStatus.OK).body(jsonResponse);
+        }
+        catch (Exception e){
+            jsonResponse.put("message", e.getMessage());
+            jsonResponse.put("status", HttpStatus.BAD_REQUEST);
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonResponse);
+        }
     }
 }

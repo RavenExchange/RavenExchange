@@ -3,6 +3,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -83,5 +86,28 @@ public class UserService {
      */
     private boolean verifyPassword(String rawPassword, String hashedPassword) {
         return BCrypt.checkpw(rawPassword, hashedPassword);
+    }
+
+    public List<User> searchUser(String query, Integer offset, Integer limit){
+        //Validate input
+        if(query == null || query.isEmpty()){
+            throw new IllegalArgumentException("Username cannot be empty or null");
+        }
+
+        if(offset == null || offset < 0){
+            throw new IllegalArgumentException("Offset must be greater than or equal to 0");
+        }
+
+        if(limit == null || limit <= 0){
+            throw new IllegalArgumentException("Limit must be greater than 0");
+        }
+
+        List<User> users = userRepository.findByUsernameContaining(query);
+
+        if(users.isEmpty() || offset >= users.size()){
+            return new ArrayList<>();
+        }
+
+        return users.subList(offset, Math.min(offset + limit, users.size()));
     }
 }
